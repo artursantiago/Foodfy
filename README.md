@@ -1,6 +1,6 @@
 <h1 align="center">
-    <img alt="Foodfy" src=".github/logo.png"/>
-    <img alt="Chef" src=".github/chef.png">
+    <img alt="Foodfy" src="/.github/logo.png"/>
+    <img alt="Chef" src="/.github/chef.png">
 </h1>
 
 <h3 align="center">
@@ -25,7 +25,7 @@
 <!-- ## 🧐 About -->
 
 <div align="center">
-  <img src=".github/presentation.gif">
+  <img src="/.github/presentation.gif">
 </div>
 
 ## :rocket: Stack
