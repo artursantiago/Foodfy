@@ -3,9 +3,9 @@
     <img alt="Chef" src="/.github/chef.png">
 </h1>
 
-<h3 align="center">
+<h4 align="center">
   Foodfy | Learn recipes created by professional chiefs from all over the world!
-</h3>
+</h4>
 
 <blockquote align="center">“Your only limit is you!”</blockquote>
 
