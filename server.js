@@ -1,5 +1,6 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
+
 const data = require('./data');
 
 const server = express();
@@ -41,8 +42,10 @@ server.get('/recipes/:index', (req, res) => {
   const recipes = [...data];
   const recipeIndex = req.params.index;
 
+  // Catch the recipe with the provided index
   const recipe = recipes[recipeIndex];
 
+  // If the recipe wasn`t found render the not-found page
   if (!recipe) {
     return res.status(404).render('not-found');
   }
