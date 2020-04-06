@@ -34,7 +34,6 @@ server.get('/about', (req, res) => {
 });
 
 server.get('/recipes', (req, res) => {
-  console.log(data.length);
   return res.render('recipes', { recipes: data});
 });
 
