@@ -233,6 +233,14 @@ h1.topic__title{
   margin-left: 8px;
 }
 
+.description-group-content {
+  display: none;
+}
+
+.description-group-content.active {
+  display: block;
+}
+
 .description-group ul {
   list-style-position: inside;
 }

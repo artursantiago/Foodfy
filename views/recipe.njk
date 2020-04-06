@@ -18,25 +18,29 @@
       <div class="description-group">
         <div class="description-group-header">
           <h3 class="description-group-header__title">Ingredientes</h3>
-          <span>Mostrar</span>
+          <span>Esconder</span>
         </div>
-        <ul>
-          {% for ingredient in recipe.ingredients%}
-            <li>{{ingredient}}</li>
-          {% endfor %}
-        </ul>
+        <div class="description-group-content active">
+          <ul>
+            {% for ingredient in recipe.ingredients%}
+              <li>{{ingredient}}</li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
 
       <div class="description-group">
         <div class="description-group-header">
           <h3 class="description-group-header__title">Modo de preparo</h3>
-          <span>Mostrar</span>
+          <span>Esconder</span>
         </div>
-        <ul>
-          {% for preparationStep in recipe.preparation%}
-            <li>{{preparationStep}}</li>
-          {% endfor %}
-        </ul>
+        <div class="description-group-content active">
+          <ul>
+            {% for preparationStep in recipe.preparation%}
+              <li>{{preparationStep}}</li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
       {% if recipe.information !== '' %}
         <div class="description-group">
@@ -44,7 +48,9 @@
             <h3 class="description-group-header__title">Informacoes Adicionais</h3>
             <span>Mostrar</span>
           </div>
-          <p>{{recipe.information}}</p>
+          <div class="description-group-content">
+            <p>{{recipe.information}}</p>
+          </div>
         </div>
       {% endif %}
     </div>
