@@ -20,11 +20,11 @@ nunjucks.configure('views', {
 
 server.get('/', (req, res) => {
   const recipes = [...data];
-  // Limite the recipes to six
+  // Limite the recipes length to six
   recipes.filter((recipe, recipeIndex) => {
     return recipeIndex < 6;
   });
-  console.log(recipes.length);
+
   return res.render('index', { recipes });
 });
 
@@ -37,9 +37,23 @@ server.get('/recipes', (req, res) => {
   return res.render('recipes', { recipes: data});
 });
 
+server.get('/recipes/:index', (req, res) => {
+  const recipes = [...data];
+  const recipeIndex = req.params.index;
+
+  const recipe = recipes[recipeIndex];
+
+  if (!recipe) {
+    return res.status(404).render('not-found');
+  }
+
+  return res.render('recipe', { recipe });
+
+})
+
 // Catch all 404 http status and render the not-found page
 server.use((req, res) => {
-  return res.status(404).send('not-found');
+  return res.status(404).render('not-found');
 });
 
 // Server will start in port 5000
