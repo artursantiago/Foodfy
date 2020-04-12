@@ -8,9 +8,9 @@ const recipes = require('./controllers/recipes');
  * Common area
  */
 routes.get('/', (req, res) => {
-  const recipes = [...data];
   // Limite the recipes length to six
-  recipes.filter((recipe, recipeIndex) => {
+  const recipes = data.filter((recipe, recipeIndex) => {
+    console.log(recipeIndex < 6);
     return recipeIndex < 6;
   });
   return res.render('public/index', { recipes });

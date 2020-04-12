@@ -2,7 +2,7 @@
 
 :root {
   --author-color: #777777;
-  --default-balck: #111111;
+  --default-black: #111111;
 }
 
 * {
@@ -44,7 +44,7 @@ nav {
 .nav__item a {
   margin-right: 30px;
   font-size: 16px;
-  color: var(--default-balck);
+  color: var(--default-black);
 }
 
 .info {
@@ -63,7 +63,7 @@ nav {
 }
 
 .description__title{
-  color: var(--default-balck);
+  color: var(--default-black);
   font-size: 32px;
 }
 
@@ -80,14 +80,8 @@ nav {
 
 .main__title {
   font-size: 24px;
-  color: var(--default-balck);
+  color: var(--default-black);
   margin-bottom: 20px;
-}
-
-.recent-access {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
 }
 
 .card {
@@ -102,7 +96,7 @@ nav {
 
 .card__title {
   font-size: 18px;
-  color: var(--default-balck);
+  color: var(--default-black);
 }
  
 .card__author {
@@ -142,7 +136,7 @@ h1.topic__title{
 
 .topic__title {
   font-size: 20px;
-  color: var(--default-balck);
+  color: var(--default-black);
 }
 
 .topic__paragraph {
@@ -192,7 +186,7 @@ h1.topic__title{
   font-weight: bold;
   line-height: 42px;
 
-  color: var(--default-balck);
+  color: var(--default-black);
 }
 
 .presentation__author {
@@ -219,7 +213,7 @@ h1.topic__title{
   font-size: 24px;
   line-height: 28px;
 
-  color: var(--default-balck);
+  color: var(--default-black);
 }
 
 .description-group-header span {
@@ -251,4 +245,24 @@ h1.topic__title{
   line-height: 28px;
   text-align: justify;
   color: #444444;
+}
+
+/* === ADMIN INDEX === */
+
+.admin nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 80px;
+  background-color: var(--default-black);
+}
+
+.admin nav img {
+margin-left: 230px;
+}
+
+.admin main {
+  margin-top: 128px;
 }

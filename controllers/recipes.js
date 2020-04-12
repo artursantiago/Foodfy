@@ -1,7 +1,7 @@
 // const data = require('../data.json');
 
 exports.index = (req, res) => {
-  return res.send('index');
+  return res.render('admin/index');
 }
 
 exports.create = (req, res) => {

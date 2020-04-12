@@ -1,0 +1,10 @@
+<section class="recipes">
+  {% for recipe in recipes %}
+    <a href="/recipes/{{loop.index0}}" class="card">
+      <img class="card__image" src="{{recipe.image}}" alt="{{recipe.title}}">
+      <h6 class="card__title">{{recipe.title}}</h6>
+      <p class="card__author">por
+        {{recipe.author}}</p>
+    </a>
+  {% endfor %}
+</section>
