@@ -1,7 +1,7 @@
-// const data = require('../data.json');
+const data = require('../data.json');
 
 exports.index = (req, res) => {
-  return res.render('admin/index');
+  return res.render('admin/index', { recipes: data.recipes});
 }
 
 exports.create = (req, res) => {
@@ -9,11 +9,21 @@ exports.create = (req, res) => {
 }
 
 exports.show = (req, res) => {
-  return res.send('show');
+  const { id } = req.params;
+  const recipe = data.recipes.find( recipe => {
+    return recipe.id == id;
+  });
+  
+  return res.render('admin/show', { recipe });
 }
 
 exports.edit = (req, res) => {
-  return res.send('edit');
+  const { id } = req.params;
+  const recipe = data.recipes.find( recipe => {
+    return recipe.id == id;
+  })
+
+  return res.render('admin/edit', { recipe });
 }
 
 exports.post = (req, res) => {

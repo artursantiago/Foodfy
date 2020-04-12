@@ -10,7 +10,6 @@ const recipes = require('./controllers/recipes');
 routes.get('/', (req, res) => {
   // Limite the recipes length to six
   const recipes = data.filter((recipe, recipeIndex) => {
-    console.log(recipeIndex < 6);
     return recipeIndex < 6;
   });
   return res.render('public/index', { recipes });

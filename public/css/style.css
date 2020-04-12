@@ -263,6 +263,22 @@ h1.topic__title{
 margin-left: 230px;
 }
 
-.admin main {
+.admin .wrapper {
   margin-top: 128px;
+}
+
+.admin .button {
+  background-color: #6558C3;
+  border-radius: 4px;
+  padding: 8px 16px;
+
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 19px;
+
+  display: block;
+  width: max-content;
+  margin-left: auto;
+
 }

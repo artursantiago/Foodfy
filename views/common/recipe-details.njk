@@ -1,0 +1,50 @@
+<main>
+    <div class="presentation">
+      <img class="presentation__image" src="{{recipe.image}}" alt="{{recipe.title}}">
+      <h1 class="presentation__title">{{recipe.title}}</h1>
+      <p class="presentation__author">por
+        {{recipe.author}}</p>
+    </div>
+
+    <div class="description">
+
+      <div class="description-group">
+        <div class="description-group-header">
+          <h3 class="description-group-header__title">Ingredientes</h3>
+          <span>Esconder</span>
+        </div>
+        <div class="description-group-content active">
+          <ul>
+            {% for ingredient in recipe.ingredients%}
+              <li>{{ingredient}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="description-group">
+        <div class="description-group-header">
+          <h3 class="description-group-header__title">Modo de preparo</h3>
+          <span>Esconder</span>
+        </div>
+        <div class="description-group-content active">
+          <ul>
+            {% for preparationStep in recipe.preparation%}
+              <li>{{preparationStep}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% if recipe.information !== '' %}
+        <div class="description-group">
+          <div class="description-group-header">
+            <h3 class="description-group-header__title">Informacoes Adicionais</h3>
+            <span>Mostrar</span>
+          </div>
+          <div class="description-group-content">
+            <p>{{recipe.information}}</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </main>
