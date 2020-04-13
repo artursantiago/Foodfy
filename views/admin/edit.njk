@@ -8,11 +8,10 @@
         <input value="{{recipe.id}}" name="id" type="hidden"> 
         <button class="button" type="submit">Deletar</button>
       </form>
-      <a href="#" class="button">Salvar</a>
+      <button form="form" type="submit" class="button">Salvar</button>
     </div>
   </div>
-  {# COLOAR O METHOD OVERRIDE #}
-  <form action="/admin/recipes/{{recipe.id}}" method="post">
+  <form id="form" action="/admin/recipes/{{recipe.id}}/edit?_method=PUT" method="post">
     {% include 'admin/fields.njk' %}
   </form>
 {% endblock %}

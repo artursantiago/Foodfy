@@ -353,8 +353,12 @@ button.new-step {
   display: flex;
 }
 
-.wrapper.edit .buttons form button {
-  background-color: #DC4747;
+.wrapper.edit button,
+.wrapper.create button {
   margin-right: 10px;
   border: none;
 }
+.wrapper.edit button {
+  background-color: #DC4747;
+}
+
