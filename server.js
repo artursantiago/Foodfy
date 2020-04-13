@@ -1,17 +1,20 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
+const methodOverride = require('method-override');
 const routes = require('./routes');
-const data = require('./data');
 
 const server = express();
 
 
 // Define the static files page
 server.use(express.static('public'));
-// tem que permitir usar o body da request --------------------
+// Allows to use req.body
+server.use(express.urlencoded({ extended: true }));
+server.use(methodOverride('_method'));
+server.use(routes);
+
 // Define the template engine
 server.set('view engine', 'njk');
-server.use(routes);
 
 // Nunjuncks settings
 nunjucks.configure('views', {

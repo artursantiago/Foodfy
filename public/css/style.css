@@ -353,7 +353,8 @@ button.new-step {
   display: flex;
 }
 
-.wrapper.edit .buttons a:first-child {
+.wrapper.edit .buttons form button {
   background-color: #DC4747;
   margin-right: 10px;
+  border: none;
 }

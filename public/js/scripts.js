@@ -31,3 +31,15 @@ if (cards) {
       }
   });
 }
+
+// Confirm form delete
+
+const formDelete = document.querySelector('.form-delete');
+
+if (formDelete) {
+  formDelete.addEventListener('submit', event => {
+    if (!confirm('Deseja deletar a receita?')) {
+      event.preventDefault();
+    }
+  });
+}

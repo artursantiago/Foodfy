@@ -1,6 +1,9 @@
+const fs = require('fs');
 const data = require('../data.json');
 
 exports.index = (req, res) => {
+  console.log('aqui tbm');
+  
   return res.render('admin/index', { recipes: data.recipes});
 }
 
@@ -35,5 +38,18 @@ exports.put = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-  return res.send('delete');
+  const { id } = req.body;
+  console.log(id);
+  const filteredRecipes = data.recipes.filter( recipe => {
+    return recipe.id != id;
+  });
+
+  data.recipes = filteredRecipes;
+  console.log('ate aqui');
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), err => {
+    if (err) {
+      return res.send('Falha na escrita dos dados no arquivo.');
+    }
+    return res.redirect('admin/recipes');
+  });
 }

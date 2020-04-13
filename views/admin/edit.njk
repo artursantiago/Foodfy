@@ -4,7 +4,10 @@
   <div class="wrapper edit">
     <h3 class="main__title">Editando Recita</h3>
     <div class="buttons">
-      <a href="#" class="button">Deletar</a>
+      <form class="form-delete" action="/admin/recipes?_method=DELETE" method="post">
+        <input value="{{recipe.id}}" name="id" type="hidden"> 
+        <button class="button" type="submit">Deletar</button>
+      </form>
       <a href="#" class="button">Salvar</a>
     </div>
   </div>
