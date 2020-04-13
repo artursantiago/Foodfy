@@ -282,3 +282,78 @@ margin-left: 230px;
   margin-left: auto;
 
 }
+
+/* === FORM === */
+
+form .input-group {
+  margin-bottom: 30px;
+}
+
+form label {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: bold;
+  color: var(--default-black);
+
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  width: 100%;
+
+  margin-top: 10px;
+  padding: 15px 20px;
+
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--default-black);
+}
+
+textarea {
+  min-height: 256px;
+  resize: vertical;
+}
+
+button.new-ingredient,
+button.new-step {
+  margin-top: 10px;
+
+  font-size: 16px;
+  font-weight: bold;
+  text-align: right;
+  text-decoration: none;
+  color: #6558C3;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+}
+
+/* === EDIT === */
+
+.wrapper.edit,
+.wrapper.create {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+}
+
+.wrapper.edit h3,
+.wrapper.create h3 {
+  margin: 0;
+}
+
+.wrapper.edit .buttons {
+  display: flex;
+}
+
+.wrapper.edit .buttons a:first-child {
+  background-color: #DC4747;
+  margin-right: 10px;
+}

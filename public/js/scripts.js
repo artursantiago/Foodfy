@@ -25,10 +25,9 @@ if (descriptionGroups) {
 const cards = document.querySelectorAll('.card');
 
 if (cards) {
-  cards.forEach(card => {
-    if (currentPage.includes('admin') && !card.getAttribute('href').includes('admin')) {
-      // element.property is different than element.getAttribute(property)
-      card.href = card.getAttribute('href');
-    }
+  cards.forEach( card => {
+    if (currentPage.includes('admin')) {
+        card.setAttribute('href', `/admin${card.getAttribute('href')}`);
+      }
   });
 }
