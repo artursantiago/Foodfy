@@ -1,15 +1,15 @@
 const express = require('express');
 const routes = express.Router();
 
-const data = require('./data');
+const data = require('./data.json');
 const recipes = require('./controllers/recipes');
 
 /**
- * Common area
+ * Public area
  */
 routes.get('/', (req, res) => {
   // Limite the recipes length to six
-  const recipes = data.filter((recipe, recipeIndex) => {
+  const recipes = data.recipes.filter((recipe, recipeIndex) => {
     return recipeIndex < 6;
   });
   return res.render('public/index', { recipes });
@@ -18,23 +18,20 @@ routes.get('/about', (req, res) => {
   return res.render('public/about');
 });
 routes.get('/recipes', (req, res) => {
-  return res.render('public/recipes', { recipes: data});
+  return res.render('public/recipes', { recipes: data.recipes });
 });
-routes.get('/recipes/:index', (req, res) => {
-  const recipes = [...data];
-  const recipeIndex = req.params.index;
-
-  // Catch the recipe with the provided index
-  const recipe = recipes[recipeIndex];
-
+routes.get('/recipes/:id', (req, res) => {
+  const { id } = req.params;
+  const recipe = data.recipes.find( recipe => {
+    return recipe.id == id;
+  })
   // If the recipe wasn`t found render the not-found page
   if (!recipe) {
     return res.status(404).render('not-found');
   }
 
   return res.render('public/recipe', { recipe });
-
-})
+});
 
 /**
  * Admin area
