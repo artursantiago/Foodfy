@@ -7,15 +7,10 @@
     "nodemon": "nodemon server.js",
     "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public, views'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/artursantiago/Foodfy.git"
-  },
-  "keywords": [],
-  "author": "Artur Santiago",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/artursantiago/Foodfy/issues"
+  "nodemonConfig": {
+    "ignore": [
+      "data.json"
+    ]
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",

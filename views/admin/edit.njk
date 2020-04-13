@@ -4,14 +4,15 @@
   <div class="wrapper edit">
     <h3 class="main__title">Editando Recita</h3>
     <div class="buttons">
-      <form class="form-delete" action="/admin/recipes?_method=DELETE" method="post">
+      <form class="form-delete" action="/admin/recipes?_method=DELETE" method="POST">
         <input value="{{recipe.id}}" name="id" type="hidden"> 
         <button class="button" type="submit">Deletar</button>
       </form>
       <button form="form" type="submit" class="button">Salvar</button>
     </div>
   </div>
-  <form id="form" action="/admin/recipes/{{recipe.id}}/edit?_method=PUT" method="post">
+  <form id="form" action="/admin/recipes?_method=PUT" method="post">
     {% include 'admin/fields.njk' %}
+    <input type="hidden" name="id" value="{{recipe.id}}">
   </form>
 {% endblock %}

@@ -355,10 +355,10 @@ button.new-step {
 
 .wrapper.edit button,
 .wrapper.create button {
-  margin-right: 10px;
   border: none;
 }
-.wrapper.edit button {
+.wrapper.edit form button {
+  margin-right: 10px;
   background-color: #DC4747;
 }
 

@@ -23,7 +23,6 @@ exports.edit = (req, res) => {
   const recipe = data.recipes.find( recipe => {
     return recipe.id == id;
   })
-  console.log(recipe.information);
   
   return res.render('admin/edit', { recipe });
 }
@@ -51,7 +50,30 @@ exports.post = (req, res) => {
 }
 
 exports.put = (req, res) => {
-  return res.send('put');
+  const { id } = req.body;
+  let index = 0;
+  
+  const foundRecipe = data.recipes.find( (recipe, recipeIndex) => {
+    if (recipe.id == req.body.id) {
+      index = recipeIndex;
+      return true;
+    }
+  })
+
+  const recipe = {
+    ...foundRecipe,
+    ...req.body,
+    id: Number(id),
+  }
+
+  data.recipes[index] = recipe;
+
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), err => {
+    if (err) {
+      return res.send('Write file error!');
+    }
+    return res.redirect('/admin/recipes/' + id);
+  });
 }
 
 exports.delete = (req, res) => {
@@ -67,6 +89,6 @@ exports.delete = (req, res) => {
     if (err) {
       return res.send('Falha na escrita dos dados no arquivo.');
     }
-    return res.redirect('admin/recipes');
+    return res.redirect('/admin/recipes');
   });
 }
