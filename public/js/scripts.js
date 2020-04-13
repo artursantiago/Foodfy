@@ -2,6 +2,16 @@
 const currentPage = location.pathname;
 
 /* Menu active */
+const navItems = document.querySelectorAll('.nav__item');
+
+if (navItems) {
+  for (const item of navItems) {
+    const href = item.querySelector('a').getAttribute('href');
+    if (currentPage.includes(href)) {
+      item.classList.add('active');
+    }
+  }
+}
 
 /* Open or close the recipe details */
 const descriptionGroups = document.querySelectorAll('.description-group');
@@ -33,7 +43,7 @@ if (cards) {
   });
 }
 
-// Confirm form delete
+/* Confirm form delete */
 const formDelete = document.querySelector('.form-delete');
 
 if (formDelete) {
@@ -44,7 +54,7 @@ if (formDelete) {
   });
 }
 
-// Dinamic inredients/prepartions form fields
+/* Dinamic inredients/prepartions form fields */
 function addNewField (parentNodeClass, fieldContainerClass, lastChildNode) {
   const parentNode = document.querySelector(`.${parentNodeClass}`);
   const fieldContainer = document.querySelectorAll(`.${fieldContainerClass}`);
@@ -61,11 +71,15 @@ function addNewField (parentNodeClass, fieldContainerClass, lastChildNode) {
 }
 
 const newIngredientBtn = document.querySelector('.new-ingredient');
-newIngredientBtn.addEventListener('click', () => {
-    addNewField('ingredients', 'ingredient', newIngredientBtn)
-})
+if (newIngredientBtn) {
+  newIngredientBtn.addEventListener('click', () => {
+      addNewField('ingredients', 'ingredient', newIngredientBtn)
+  })
+}
 
 const newStepBtn = document.querySelector('.new-step');
-newStepBtn.addEventListener('click', () => {
-    addNewField('preparation', 'step', newStepBtn)
-})
+if (newStepBtn) {
+  newStepBtn.addEventListener('click', () => {
+      addNewField('preparation', 'step', newStepBtn)
+  })
+}
