@@ -1,6 +1,8 @@
 // Current page path name
 const currentPage = location.pathname;
 
+/* Menu active */
+
 /* Open or close the recipe details */
 const descriptionGroups = document.querySelectorAll('.description-group');
 
@@ -19,7 +21,6 @@ if (descriptionGroups) {
   });
 }
 
-/* Menu active */
 
 /* Open recipe in admin mode or not */
 const cards = document.querySelectorAll('.card');
@@ -33,7 +34,6 @@ if (cards) {
 }
 
 // Confirm form delete
-
 const formDelete = document.querySelector('.form-delete');
 
 if (formDelete) {
@@ -43,3 +43,29 @@ if (formDelete) {
     }
   });
 }
+
+// Dinamic inredients/prepartions form fields
+function addNewField (parentNodeClass, fieldContainerClass, lastChildNode) {
+  const parentNode = document.querySelector(`.${parentNodeClass}`);
+  const fieldContainer = document.querySelectorAll(`.${fieldContainerClass}`);
+  console.log(fieldContainer);
+  
+  const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
+
+  if (newField.children[0].value == "") {
+    return false;
+  }
+
+  newField.children[0].value = "";
+  parentNode.insertBefore(newField, lastChildNode);
+}
+
+const newIngredientBtn = document.querySelector('.new-ingredient');
+newIngredientBtn.addEventListener('click', () => {
+    addNewField('ingredients', 'ingredient', newIngredientBtn)
+})
+
+const newStepBtn = document.querySelector('.new-step');
+newStepBtn.addEventListener('click', () => {
+    addNewField('preparation', 'step', newStepBtn)
+})

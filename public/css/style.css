@@ -356,6 +356,7 @@ button.new-step {
 .wrapper.edit button,
 .wrapper.create button {
   border: none;
+  cursor: pointer;
 }
 .wrapper.edit form button {
   margin-right: 10px;

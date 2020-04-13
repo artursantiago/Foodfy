@@ -2,24 +2,26 @@
   <label for="title">Titulo</label>
   <input value="{{recipe.title}}" type="text" name="title" required>
 </div>
+
 <div class="input-group">
   <label for="image">Imagem da receita</label>
   <input value="{{recipe.image}}" type="url" name="image" placeholder="https://" required>
 </div>
+
 <div class="input-group ingredients">
   <label for="ingredients[]">Ingredientes</label>
   {% if not recipe %}
     <div class="ingredient">
-    <input type="text" name="ingredients[]" required>
-  </div>
+      <input type="text" name="ingredients[]" required>
+    </div>
   {% else %}
     {% for ingredient in recipe.ingredients %}
       <div class="ingredient">
-    <input value="{{ingredient}}" type="text" name="ingredients[]" required>
-  </div>
+        <input value="{{ingredient}}" type="text" name="ingredients[]" required>
+      </div>
     {% endfor %}
   {% endif %}
-  <button class="new-ingredient">Adicionar novo ingrediente</button>
+  <button class="new-ingredient" type="button">Adicionar novo ingrediente</button>
 </div>
 
 <div class="input-group preparation">
@@ -35,8 +37,9 @@
         </div>
       {% endfor %}
     {% endif %}
-  <button class="new-step">Adicionar novo passo</button>
+  <button class="new-step" type="button">Adicionar novo passo</button>
 </div>
+
 <div class="input-group">
   <label for="information">Informacoes Adicionais</label>
   <textarea value="{{recipe.information}}" type="text" name="information" required>{{recipe.information}}</textarea>
